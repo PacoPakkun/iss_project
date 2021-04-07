@@ -2,10 +2,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -13,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class MainController {
-    public class Model{
+    public class Model {
         private String nr;
         private String pozitie;
         private String pret;
@@ -56,7 +53,11 @@ public class MainController {
     @FXML
     TableView locuri;
     @FXML
-    TextField nume, ora;
+    TextField nume, ora, username;
+    @FXML
+    PasswordField password;
+    @FXML
+    Button adauga, modifica, sterge;
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -72,16 +73,16 @@ public class MainController {
     }
 
     @FXML
-    public void showHandler(){
+    public void showHandler() {
         nume.setText(spectacole.getSelectionModel().getSelectedItems().toString());
         ora.setText("ora 14:00");
-        List<Model> list=new ArrayList<>();
-        list.add(new Model("1","randul 1","30"));
-        list.add(new Model("2","randul 4","30"));
-        list.add(new Model("3","loja 3","50"));
-        list.add(new Model("4","loja 10","50"));
-        list.add(new Model("5","randul 7","25"));
-        list.add(new Model("6","loja vip","100"));
+        List<Model> list = new ArrayList<>();
+        list.add(new Model("1", "randul 1", "30"));
+        list.add(new Model("2", "randul 4", "30"));
+        list.add(new Model("3", "loja 3", "50"));
+        list.add(new Model("4", "loja 10", "50"));
+        list.add(new Model("5", "randul 7", "25"));
+        list.add(new Model("6", "loja vip", "100"));
         Collections.shuffle(list);
         locuri.getItems().clear();
         locuri.getItems().addAll(list);
@@ -89,7 +90,7 @@ public class MainController {
     }
 
     @FXML
-    public void ticketHandler(){
+    public void ticketHandler() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("BuyWindow.fxml"));
             Parent root = loader.load();
@@ -104,6 +105,16 @@ public class MainController {
             alert.setContentText("Error while starting app " + e);
             System.out.println(e);
             alert.showAndWait();
+        }
+    }
+
+    @FXML
+    public void loginHandler() {
+        if (username.getText().equals("admin") && password.getText().equals("admin")) {
+            spectacole.setPrefHeight(308);
+            adauga.setVisible(true);
+            modifica.setVisible(true);
+            sterge.setVisible(true);
         }
     }
 }

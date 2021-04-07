@@ -1753,7 +1753,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAF4VvLI++ivmUA="
 									},
-									"text": "+spectacol"
+									"text": "+spectacole"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -2411,7 +2411,7 @@
 								"_parent": {
 									"$ref": "AAAAAAF4VvLI++irti0="
 								},
-								"name": "spectacol",
+								"name": "spectacole",
 								"reference": {
 									"$ref": "AAAAAAF4Vrw0Ars1Tzg="
 								},
