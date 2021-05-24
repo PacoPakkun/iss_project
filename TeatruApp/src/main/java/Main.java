@@ -1,4 +1,4 @@
-import Repo.Repository;
+import ctrl.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("views/MainWindow.fxml"));
             Parent root = loader.load();
             MainController ctrl = loader.getController();
             ctrl.setStage(primaryStage);
